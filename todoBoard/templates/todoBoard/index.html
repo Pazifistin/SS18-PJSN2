@@ -87,12 +87,13 @@
                                     <td>
                                         <!-- toggle : no space between buttons -->
                                         <div class="btn-group-toggle" data-toggle="buttons">
-                                            <a class="btn btn-primary" href="editTodo.html">
+                                            <a class="btn btn-primary" href="{% url 'todoBoard:edit' todo.id %}">
                                             Edit
                                             </a>
-                                            <button type="button" class="btn btn-danger">
+                                            <a class="btn btn-danger" href="{% url 'todoBoard:delete' todo.id %}" method="post">
+                                                {% csrf_token %}
                                             Delete
-                                            </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>

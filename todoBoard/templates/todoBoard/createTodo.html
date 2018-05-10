@@ -39,21 +39,21 @@
             <!-- Form for Todo creation -->
             <form>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">
+                    <label for="description">
                         Description
                     </label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Description ..." ></textarea>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Enter Description ...">{{ description }}</textarea>
                 </div>
                 <div class="form-group ">
-                    <label for="inputProgress">
-                        Progress %
+                    <label for="completion">
+                        Completion %
                     </label>
-                    <input type="number" class="form-control" id="inputProgress" />
+                    <input type="number" class="form-control" id="completion" />
                 </div>
                 <div class="row">
                     <div class="col-xs-6 col-md-2">
                         <div class="form-group">
-                            <div class='input-group date' id='datetimepicker1'>
+                            <div class='input-group date' id='due'>
                                 <input type='date' class="form-control" />
                                 <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
@@ -68,7 +68,7 @@
                         });
                     </script>
                 </div>
-                <a class="btn btn-success btn-lg btn-block"  href="index.html">
+                <a class="btn btn-success btn-lg btn-block"  href="{% url 'todoBoard:newSubmit' %}">
                 Submit
                 </a>
             </form>
