@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>ToDo List</title>
+        <!-- Required and optional meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Free Web ToDo List">
+        <meta name="keywords" content="ToDo, To-Do, TODO,">
+        <meta name="author" content="Henrik Baehde, Melanie Wendler">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+        <!-- Own CSS and JS-->
+        <link rel="stylesheet" href="assets/css/own.css"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="index.html">TO-DOS</a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="createTodo.html">Creat New Task</a>
+                        <a class="nav-item nav-link" href="editTodo.html">Edit Task</a>
+                        <a class="nav-item nav-link" href="howToEditTodo.html">Wiki</a>
+                        <a class="nav-item nav-link" href="about.html">About</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- Header with site description -->
+            <div class="jumbotron">
+                <h1>
+                    My To-Do List
+                </h1>
+                <!-- horizontal line -->
+                <hr>
+                <h2>
+                    Get reminded anytime -
+                    Never forget a meeting, deadline or your purchases again.
+                </h2>
+                <!-- Edit helper button -->
+                <br>
+                <p>
+                <h3 style="float: right;">
+                    Check out NOW how easy it is to create your own task:
+                    <a class="btn btn-success" href="howToEditTodo.html">
+                        &#x25B7;   <!--<span class="glyphicon glyphicon-play-circle"></span>-->
+                    </a>
+                </h3>
+            </div>
+            <!-- class "row" : adjust table width to page width  -->
+            <div class="row">
+                <!-- "col-xs/md-12" : table adapts to desktop, tablet and smartphone-->
+                <div class="col-xs-12 col-md-12">
+                    <h2> My To-Do List <span><a class="btn btn-success"  href="createTodo.html">Create new Todo</a></span></h2>
+
+                    {% if all_todos %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th>
+                                        Due
+                                    </th>
+                                    <th>
+                                        Completion
+                                    </th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for todo in all_todos %}
+                                <tr>
+                                    <td>
+                                        {{ todo.description }}
+                                    </td>
+                                    <td>
+                                        {{ todo.due|date:"d.m.Y" }}
+                                    </td>
+                                    <td>
+                                        {{ todo.completion }}%
+                                    </td>
+                                    <td>
+                                        <!-- toggle : no space between buttons -->
+                                        <div class="btn-group-toggle" data-toggle="buttons">
+                                            <a class="btn btn-primary" href="editTodo.html">
+                                            Edit
+                                            </a>
+                                            <button type="button" class="btn btn-danger">
+                                            Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <div class="jumbotron">
+                            <p>
+                                No Todo found. Create one now!
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- fluid : adjust footer width to page width-->
+            <footer class="container-fluid text-center ">
+                Designed and Built by <a href="https://github.com/8dzed2">@Baehde</a> & <a href="https://github.com/Pazifistin">@Wendler</a>
+            </footer>
+        </div>
+    </body>
+</html>
