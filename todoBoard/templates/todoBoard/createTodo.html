@@ -37,30 +37,39 @@
                 </p>
             </div>
             <!-- Form for Todo creation -->
-            <form>
+            <form action="{% url 'todoBoard:newSubmit' %}" method="post">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="description">
                         Description
                     </label>
-                    <textarea class="form-control" id="description" rows="3" placeholder="Enter Description ...">{{ description }}</textarea>
+                    <input type="textarea" class="form-control" id="description" required="True" rows="3" placeholder="Enter Description ..." name="description" value="{{ description }}">
                 </div>
                 <div class="form-group ">
                     <label for="completion">
                         Completion %
                     </label>
-                    <input type="number" class="form-control" id="completion" />
+                    <input type="number" class="form-control" id="completion" required="True" name="completion" value="{{ completion }}">
                 </div>
                 <div class="row">
                     <div class="col-xs-6 col-md-2">
                         <div class="form-group">
-                            <div class='input-group date' id='due'>
-                                <input type='date' class="form-control" />
+                            <label for="due">
+                                Due
+                            </label>
+                            <div class='input-group date'>
+                                <input type='date' class="form-control" id="due" required="True" name="due" value="{{ due }}"/>
                                 <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
                         </div>
                     </div>
+                    {% if error_msg %}
+                        <div class="alert alert-danger">
+                          <strong>Error:</strong> {{ context.error_msg }}
+                        </div>
+                    {% endif %}
                     <!-- add functionality to picker later -->
                     <script type="text/javascript">
                         $(function () {
@@ -68,9 +77,7 @@
                         });
                     </script>
                 </div>
-                <a class="btn btn-success btn-lg btn-block"  href="{% url 'todoBoard:newSubmit' %}">
-                Submit
-                </a>
+                <input type="submit" class="btn btn-success btn-lg btn-block" value="Submit">
             </form>
             <footer class="container-fluid text-center">
                 Designed and Built by <a href="https://github.com/8dzed2">@Baehde</a> & <a href="https://github.com/Pazifistin">@Wendler</a>

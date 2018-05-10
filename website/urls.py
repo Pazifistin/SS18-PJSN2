@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-from django.shortcuts import redirect
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    #path('', redirect(todoBoard.index)),
     path('admin/', admin.site.urls),
     path('todoBoard/', include('todoBoard.urls')),
+    path('', RedirectView.as_view(pattern_name='todoBoard:index', permanent=True)),
 ]

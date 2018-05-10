@@ -53,7 +53,7 @@
             <div class="row">
                 <!-- "col-xs/md-12" : table adapts to desktop, tablet and smartphone-->
                 <div class="col-xs-12 col-md-12">
-                    <h2> My To-Do List <span><a class="btn btn-success"  href="createTodo.html">Create new Todo</a></span></h2>
+                    <h2> My To-Do List <span><a class="btn btn-success"  href="{% url 'todoBoard:new' %}">Create new Todo</a></span></h2>
 
                     {% if all_todos %}
                         <table class="table">
@@ -90,8 +90,7 @@
                                             <a class="btn btn-primary" href="{% url 'todoBoard:edit' todo.id %}">
                                             Edit
                                             </a>
-                                            <a class="btn btn-danger" href="{% url 'todoBoard:delete' todo.id %}" method="post">
-                                                {% csrf_token %}
+                                            <a class="btn btn-danger" href="{% url 'todoBoard:delete' todo.id %}">
                                             Delete
                                             </a>
                                         </div>

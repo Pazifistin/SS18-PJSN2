@@ -37,48 +37,47 @@
                 </p>
             </div>
             <!-- Form for Todo edtiting -->
-            <form>
-                <!-- Description Field -->
-                <!-- form-group : set right spacing-->
+            <form action="{% url 'todoBoard:editSubmit' todo.id %}" method="post">
+                {% csrf_token %}
                 <div class="form-group">
-                    <!-- lable : if the user clicks on the text within the <label> element, it toggles the control-->
-                    <!-- The for attribute of the <label> tag should be equal to the id attribute of the related element to bind them together.-->
-                    <label for="exampleFormControlTextarea1">
+                    <label for="description">
                         Description
                     </label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ todo.description }}</textarea>
+                    <input type="textarea" class="form-control" id="description" rows="3" required="True" placeholder="Enter Description ..." name="description" defaultvalue="{{ description }}" value="{{ description }}">
                 </div>
-                <!-- Progress Field -->
-                <div class="form-group">
-                    <label for="inputProgress">
+                <div class="form-group ">
+                    <label for="completion">
                         Completion %
                     </label>
-                    <input type="number" class="form-control" id="inputProgress" value="{{ todo.completion }}"/>
+                    <input type="number" class="form-control" id="completion" required="True" name="completion" value="{{ completion }}">
                 </div>
-                <!-- Date Picking Field -->
                 <div class="row">
-                    <!-- class="col-xs-6 col-md-2" : table adapts to desktop, tablet and smartphone-->
                     <div class="col-xs-6 col-md-2">
                         <div class="form-group">
-                            <div class='input-group date' id='datetimepicker1'>
-                                <input type='date' class="form-control" value="{{ todo.due|date:"Y-m-d" }}"/>
+                            <label for="due">
+                                Due
+                            </label>
+                            <div class='input-group date'>
+                                <input type='date' class="form-control" id="due" required="True" name="due" value="{{ due }}"/>
                                 <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <!-- add functionality to date picker later on -->
+                    {% if error_msg %}
+                        <div class="alert alert-danger">
+                          <strong>Error:</strong> {{ error_msg }}
+                        </div>
+                    {% endif %}
+                    <!-- add functionality to picker later -->
                     <script type="text/javascript">
                         $(function () {
                         	$('#datetimepicker1').datetimepicker();
                         });
                     </script>
                 </div>
-                <!-- Submit Button -->
-                <a class="btn btn-success btn-lg btn-block" href="index.html">
-                Submit
-                </a>
+                <input type="submit" class="btn btn-success btn-lg btn-block" value="Submit">
             </form>
             <footer class="container-fluid text-center">
                 Designed and Built by <a href="https://github.com/8dzed2">@Baehde</a> & <a href="https://github.com/Pazifistin">@Wendler</a>
