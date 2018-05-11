@@ -74,7 +74,11 @@
                             </thead>
                             <tbody>
                             {% for todo in all_todos %}
+                                {% if forloop.counter0|divisibleby:2 %}
+                                <tr class="table-active">
+                                {% else %}
                                 <tr>
+                                {% endif %}
                                     <td>
                                         {{ todo.description }}
                                     </td>
