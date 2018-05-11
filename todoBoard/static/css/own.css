@@ -1,0 +1,30 @@
+/* Set ###### background color, white text and some padding */
+footer {
+    background-color: #212529;
+    padding: 15px;
+    border-radius: 3px;
+    color: #7c868a;
+;
+}
+.jumbotron {
+    background-color: #2ecd1c;
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #2ecd1c !important;
+    font-weight: bold;
+}
+.btn {
+    margin-bottom: 1%;
+}
+thead {
+    background-color: #2fd31d;
+}
+
+*[role="main"] {
+    border-radius: 5%;
+    background-color: #0c5460;
+}
