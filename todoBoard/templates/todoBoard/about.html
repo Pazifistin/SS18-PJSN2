@@ -11,19 +11,19 @@
                 <!-- Bootstrap CSS -->
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
                 <!-- Own CSS and JS-->
-                <link rel="stylesheet" href="assets/css/own.css"/>
+                {% load staticfiles %}
+                <link rel="stylesheet" href="{% static 'css/own.css' %}"/>
             </head>
             <body>
             <div class="container-fluid">
                 <!-- Navbar -->
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="index.html">TO-DOS</a>
+                    <a class="navbar-brand" href="{% url 'todoBoard:index' %}">TO-DOS</a>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="createTodo.html">Creat New Task</a>
-                            <a class="nav-item nav-link" href="editTodo.html">Edit Task</a>
-                            <a class="nav-item nav-link" href="howToEditTodo.html">Wiki</a>
-                            <a class="nav-item nav-link" href="about.html">About</a>
+                            <a class="nav-item nav-link" href="{% url 'todoBoard:new' %}">Creat New Task</a>
+                            <a class="nav-item nav-link" href="{% url 'todoBoard:howToEdit' %}">Wiki</a>
+                            <a class="nav-item nav-link" href="{% url 'todoBoard:aboutus' %}">About</a>
                         </div>
                     </div>
                 </nav>
