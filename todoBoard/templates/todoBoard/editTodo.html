@@ -59,7 +59,7 @@
                             </label>
                             <div class='input-group date'>
                                 <!-- type="date" cause non-display of old due-value -->
-                                <input type='date' class="form-control" id="due" required="True" name="due" value="{{ todo.due }}"/>
+                                <input type='date' class="form-control" id="due" required="True" name="due" value="{{todo.due|date:"Y-m-d" }}"/>
                                 <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
