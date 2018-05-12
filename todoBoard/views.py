@@ -81,6 +81,8 @@ def editsubmit(request, pk):
             # everything went well
             todo = Todo(description=description, completion=completion, due=due)
             todo.save()
+            # delet old entry (unchanged) from database
+            Todoo.objects.filter(pk=pk).delete()
     return redirect('todoBoard:index')
 
 
