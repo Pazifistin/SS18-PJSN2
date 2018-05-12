@@ -43,13 +43,13 @@
                     <label for="description">
                         Description
                     </label>
-                    <input type="textarea" class="form-control" id="description" rows="3" required="True" placeholder="Enter Description ..." name="description" defaultvalue="{{ description }}" value="{{ description }}">
+                    <input type="textarea" class="form-control" id="description" rows="3" required="True" placeholder="Enter Description ..." name="description" defaultvalue="{{ description }}" value="{{ todo.description }}">
                 </div>
                 <div class="form-group ">
                     <label for="completion">
                         Completion %
                     </label>
-                    <input type="number" class="form-control" id="completion" required="True" name="completion" value="{{ completion }}">
+                    <input type="number" class="form-control" id="completion" required="True" name="completion" value="{{ todo.completion }}">
                 </div>
                 <div class="row">
                     <div class="col-xs-6 col-md-2">
@@ -58,7 +58,8 @@
                                 Due
                             </label>
                             <div class='input-group date'>
-                                <input type='date' class="form-control" id="due" required="True" name="due" value="{{ due }}"/>
+                                <!-- type="date" cause non-display of old due-value -->
+                                <input type='date' class="form-control" id="due" required="True" name="due" value="{{ todo.due }}"/>
                                 <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
