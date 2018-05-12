@@ -14,6 +14,16 @@ def new(request):
     return render(request, 'todoBoard/createTodo.html')
 
 
+# returns the howToEditTodo.html
+def howto(request):
+    return render(request, 'todoBoard/howToEditTodo.html')
+
+
+# returns the about.html
+def aboutus(request):
+    return render(request, 'todoBoard/about.html')
+
+
 # gets called when the submit button is hit on the createTodo.html
 def newsubmit(request):
     try:
