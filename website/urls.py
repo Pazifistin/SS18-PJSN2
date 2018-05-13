@@ -21,6 +21,6 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('todoBoard/', include('todoBoard.urls')),
-    path('', include('polls.urls'))
+    #path('', include('polls.urls')),
     path('', RedirectView.as_view(pattern_name='todoBoard:index', permanent=True)),
 ]
